@@ -19,6 +19,7 @@ let update = (image)=>{
     image.addEventListener('click', ()=>{
         zoom.style.display = 'block'
         zoom.innerHTML = render
+        zoom.scrollTop = 0;
         document.querySelector('body').style.overflow = 'hidden'
         const zoomContainer = document.querySelector('#zoom .zoom-container');
         const zoomContainerImage = document.querySelector('#zoom .zoom-container img'); 
@@ -58,6 +59,7 @@ let update = (image)=>{
             ri.addEventListener('click', (e)=>{
                 zoomContainerImage.src = ri.src
                 // rr.remove(rr)
+                zoom.scrollTop = 0;
                 console.log(rlic);
                 
             })
