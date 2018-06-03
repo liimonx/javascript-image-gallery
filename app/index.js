@@ -12,7 +12,7 @@ import { timingSafeEqual } from 'crypto';
 const images = document.querySelectorAll('#gallery img');
 const zoom = document.getElementById('zoom')
 let render = `<div class="container"><div class="header"></div><div class="zoom-container"><img src="assets/images/photo-1464457312035-3d7d0e0c058e.jpg" alt=""></div><div class="related_images">
-<h1>Related Images</h1><div class="container"><div class="__images"></div></div></div><div class="foot"></div></div>`
+<h1>Related Images</h1><div class="__images"></div></div><div class="foot"></div></div>`
 
 
 let update = (image)=>{
@@ -51,19 +51,15 @@ let update = (image)=>{
             const ri = document.createElement('img')
             ri.dataset.tag = r.dataset.tag
             ri.src = r.src
-            
             if(zoomContainerImage.src !== ri.src){
                 rr.appendChild(ri)
                 rlic.appendChild(rr)
+                
             }
             ri.addEventListener('click', (e)=>{
                 zoomContainerImage.src = ri.src
-                // rr.remove(rr)
                 zoom.scrollTop = 0;
-                console.log(rlic);
-                
             })
-            
         })
 
     })

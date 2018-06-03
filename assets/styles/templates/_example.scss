@@ -55,12 +55,11 @@ header{
     }
   
     @include breakpoint($medium) {
-      background-image: url('~/assets/images/photo-1464457312035-3d7d0e0c058e.jpg')
+      background-image: url('~/assets/images/photo-1525800890330-3be36a1dc846.jpg')
     }
   
     @include breakpoint($large) {
-      background-image: url('~/assets/images/photo-1525800890330-3be36a1dc846.jpg')
-     
+      background-image: url('~/assets/images/photo-1464457312035-3d7d0e0c058e.jpg')
     }
   
     @include breakpoint($x-large) {
