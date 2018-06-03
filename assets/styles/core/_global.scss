@@ -1,0 +1,15 @@
+html, body {
+    font-family: $system-font;
+    font-size: 100%;
+  }
+  
+  body {
+    background-color: #fff;
+    color:#505050;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  
+  img, svg { max-width: 100%; }

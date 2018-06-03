@@ -1,0 +1,35 @@
+mixin photo(i, t)
+   img(src="assets/images/"+i, alt="", data-tag=t)
+
+#gallery
+    .container-fluid
+        .row
+            .col-sm-6.col-lg-3
+                +photo('photo-1496671431883-c102df9ae8f9.jpg', 'girl')
+                +photo('photo-1441422454217-519d3ee81350.jpg', 'tree')
+                +photo('photo-1522836576857-a254842626be.jpg', 'tree')
+                +photo('photo-1525800890330-3be36a1dc846.jpg','rock')
+                +photo('photo-1476480862126-209bfaa8edc8.jpg','foot')
+                +photo('photo-1478071735433-5d8f19ad0fca.jpg','rock')
+            .col-sm-6.col-lg-3
+                +photo('photo-1505200445606-954f33d19c2b.jpg','sunset')
+                +photo('photo-1464457312035-3d7d0e0c058e.jpg','tree')
+                +photo('photo-1477276266798-898214c677da.jpg','girl')
+                +photo('photo-1504198912477-3018896a9525.jpg','sunset')
+                +photo('photo-1518817224167-fd9c61124283.jpg','girl')
+                +photo('photo-1520596880803-6ea0113a42d1.jpg','rock')
+            .col-sm-6.col-lg-3
+                +photo('photo-1464708042292-1323f62d4e3b.jpg','tree car')
+                +photo('photo-1525896967401-bee10dc2276d.jpg','girl')
+                +photo('photo-1487621167305-5d248087c724.jpg','dark')
+                +photo('photo-1500673922987-e212871fec22.jpg','dark')
+                +photo('photo-1487054119077-25d803b1aec6.jpg', 'girl')
+                +photo('photo-1490902931801-d6f80ca94fe4.jpg','geep')
+            .col-sm-6.col-lg-3
+                +photo('photo-1445964047600-cdbdb873673d.jpg','tree')
+                +photo('photo-1490843524522-ee99e561bb90.jpg','foot')
+                +photo('photo-1464863979621-258859e62245.jpg','girl')
+                +photo('photo-1460904577954-8fadb262612c.jpg','girl')
+                +photo('photo-1458134692397-fc4217ad1dc5.jpg','girl')
+                +photo('photo-1458546450666-ebb1e605853f.jpg', 'girl')
+                                
