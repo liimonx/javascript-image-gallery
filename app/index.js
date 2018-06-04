@@ -42,7 +42,7 @@ let update = (image)=>{
             }
         })
         
-        let rl = [...images].filter(image => image.dataset.tag === zoomContainerImage.dataset.tag )
+        let rl = [...images].filter(image => image.dataset.tag === zoomContainerImage.dataset.tag)
         
         rl.forEach(r => {
             const rlic = document.querySelector('.__images')
@@ -54,7 +54,6 @@ let update = (image)=>{
             if(zoomContainerImage.src !== ri.src){
                 rr.appendChild(ri)
                 rlic.appendChild(rr)
-                
             }
             ri.addEventListener('click', (e)=>{
                 zoomContainerImage.src = ri.src
