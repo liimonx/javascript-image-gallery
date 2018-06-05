@@ -71,32 +71,30 @@ header{
 
 
 #slider {
+    position: relative;
     display: flex;
+    margin-top: 3rem;
+    width: 100%;
+    min-height: 40vw;
     justify-content: center;
     align-items: center;
+    background-image: url('~/assets/images/photo-1441422454217-519d3ee81350.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    transition: background 0.5s;
+    #fade-out{
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #fff;
+      position: absolute;
+      opacity: 0;
+    }
     h1{
       font-size: 5rem;
       color: #ccc;
-    }
-    @include breakpoint($small) {
-      margin-top: 3rem;
-      width: 100%;
-      min-height: 40vw;
-      background-image: url('~/assets/images/photo-1445964047600-cdbdb873673d.jpg');
-      background-size: cover;
-      background-position: center;
-    }
-  
-    @include breakpoint($medium) {
-      background-image: url('~/assets/images/photo-1525800890330-3be36a1dc846.jpg')
-    }
-  
-    @include breakpoint($large) {
-      background-image: url('~/assets/images/photo-1464457312035-3d7d0e0c058e.jpg')
-    }
-  
-    @include breakpoint($x-large) {
-      background-image: url('~/assets/images/photo-1441422454217-519d3ee81350.jpg')
     }
   }
   #gallery{
