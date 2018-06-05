@@ -82,7 +82,7 @@ header{
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
-    transition: background 0.5s;
+    transition: background 0.7s;
     #fade-out{
       top: 0;
       right: 0;
@@ -100,8 +100,12 @@ header{
   #gallery{
     margin-top: 3rem;
     img{
-      margin-top: 1.75rem;
+      margin:  0.5rem 0;
       cursor: zoom-in;
+    
+    }
+    .col-3{
+      padding:  0 0.5rem;
     }
   }
   #zoom{
