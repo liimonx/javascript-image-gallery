@@ -161,3 +161,23 @@ header{
       }
     }
   }
+
+#search__results{
+  top: 3rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  overflow-y: scroll;
+  background: rgba(64, 70, 75, 0.856);
+  .result-images{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    .___image{
+      max-width: 250px;
+      margin: 1rem 0;
+    }
+  }
+}
