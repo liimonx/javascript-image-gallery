@@ -1,5 +1,5 @@
 const allImages = document.querySelectorAll('#gallery img')
-const fadeOutContainer = document.getElementById('fade-out')
+const fadeOutSlider = document.getElementById('fade-out')
 
 setInterval(()=>{
     const selectedImages = allImages[Math.floor(Math.random()*allImages.length)];
@@ -9,5 +9,5 @@ setInterval(()=>{
 }, 4000)
 
 window.addEventListener('scroll', (e)=>{
-    fadeOutContainer.style.opacity = window.scrollY * 0.002
+    fadeOutSlider.style.opacity = window.scrollY * 0.002
 })
