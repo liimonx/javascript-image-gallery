@@ -165,11 +165,19 @@ header{
 #search__results{
   top: 3rem;
   left: 0;
-  bottom: 0;
+  bottom: 100%;
   right: 0;
   position: fixed;
   overflow-y: scroll;
+  transition: all 0.3s;
   background: rgba(64, 70, 75, 0.856);
+  .close{
+    width: 40px;
+    opacity: 0.7;
+    cursor: pointer;
+    float: right;
+    margin: 20px 20px 0 0;
+  }
   .result-images{
     display: flex;
     flex-direction: row;
