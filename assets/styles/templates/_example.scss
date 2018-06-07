@@ -173,7 +173,8 @@ header{
   .result-images{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
     .___image{
       max-width: 250px;
