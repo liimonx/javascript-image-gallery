@@ -31,7 +31,7 @@ let update = (image)=>{
             }
         })
         
-        let rl = [...images].filter(image => image.dataset.tag === zoomContainerImage.dataset.tag)
+        let rl = [...images].filter(image => image.dataset.tag.toUpperCase().indexOf(zoomContainerImage.dataset.tag.toUpperCase()) > -1 )
         
         rl.forEach(r => {
             const rlic = document.querySelector('.__images')

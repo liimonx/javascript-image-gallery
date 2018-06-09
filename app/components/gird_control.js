@@ -23,7 +23,7 @@ const gridControl = (a,b,c,d) => {
     arr.forEach( s => {
         if (s > 0) {
             if (s == a) {
-                
+                                
             }else if (s == b){
                 
             }else if (s == c){
