@@ -31,24 +31,27 @@ let update = (image)=>{
             }
         })
         
-        let rl = [...images].filter(image => image.dataset.tag.toUpperCase().indexOf(zoomContainerImage.dataset.tag.toUpperCase()) > -1 )
         
-        rl.forEach(r => {
-            const rlic = document.querySelector('.__images')
-            const rr = document.createElement('div')
-            rr.classList.add('__image')
-            const ri = document.createElement('img')
-            ri.dataset.tag = r.dataset.tag
-            ri.src = r.src
-            if(zoomContainerImage.src !== ri.src){
-                rr.appendChild(ri)
-                rlic.appendChild(rr)
+        images.forEach(image => {
+            if (image.dataset.tag.toUpperCase().indexOf(zoomContainerImage.dataset.tag.toUpperCase()) > -1 ) {
+                const rlic = document.querySelector('.__images')
+                const rr = document.createElement('div')
+                rr.classList.add('__image')
+                const ri = document.createElement('img')
+                ri.dataset.tag = image.dataset.tag
+                ri.src = image.src
+                if(zoomContainerImage.src !== ri.src){
+                    rr.appendChild(ri)
+                    rlic.appendChild(rr)
+                }
+                ri.addEventListener('click', (e)=>{
+                    zoomContainerImage.src = ri.src
+                    zoomContainerImage.dataset.tag = ri.dataset.tag
+                    zoom.scrollTop = 0;
+                })
             }
-            ri.addEventListener('click', (e)=>{
-                zoomContainerImage.src = ri.src
-                zoom.scrollTop = 0;
-            })
         })
+
 
     })
 }
