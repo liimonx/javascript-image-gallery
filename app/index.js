@@ -8,7 +8,8 @@ import { timingSafeEqual } from 'crypto';
 import './components/search'
 import './components/slider'
 import './components/view'
-import './components/gird_control'
+import './components/imgsrc'
+import './components/imgDistribution'
 // ================================
 // START YOUR APP HERE
 // ================================
