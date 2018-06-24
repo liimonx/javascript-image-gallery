@@ -13,39 +13,3 @@ let b = grid2.childNodes.length
 let c = grid3.childNodes.length
 let d = grid4.childNodes.length
 
-const gridControl = (a,b,c,d) => {
-    const t = (a+b+c+d) / 4
-    a = t - a
-    b = t - b
-    c = t - c
-    d = t - d
-    const arr = [a, b, c, d]
-    arr.forEach( s => {
-        if (s > 0) {
-            if (s == a) {
-                                
-            }else if (s == b){
-                
-            }else if (s == c){
-
-            }else if (s == d){
-                
-            }
-        }else{
-            if (s == a) {
-                
-            }else if (s == b){
-                
-            }else if (s == c){
-
-            }else if (s == d){
-                
-            }
-        }
-    })
-
-
-       
-}
-
-gridControl(a,b,c,d)
