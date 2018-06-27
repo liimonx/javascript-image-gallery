@@ -11,8 +11,12 @@ const render = `<div class="container-fluid"><div class="row"><div class="col" i
 const displayContainer = (value) => {
         if (value) {	
             searchContainer.style.bottom = 0	
-            document.body.style.overflow = 'hidden'	
-            result.innerHTML = render
+            document.body.style.overflow = 'hidden'
+            
+            if (result.childNodes.length == 0) {
+                result.innerHTML = render
+            }
+            
         }else{	
             searchContainer.style.bottom = '100%'	
             document.body.style.overflow = 'auto' 	
@@ -24,8 +28,6 @@ const displayContainer = (value) => {
     }
 
 closeButon.addEventListener('click', () => displayContainer(false))
-
-
 
 input.addEventListener('click', () => {
     displayContainer(true)
@@ -53,35 +55,47 @@ input.addEventListener('click', () => {
         }
     }
 
-    input.addEventListener('keyup', (e) => {
-        const value = input.value.toUpperCase()
-        if (value && e.key == 'Enter') {
-            const resultImg = images.filter(img => img.tag.toUpperCase().indexOf(value) > -1)
-            
-            resultImg.forEach(img => {
-                imageDistribution(
-                    img, 
-                    grid1.children.length, 
-                    grid2.children.length, 
-                    grid3.children.length, 
-                    grid4.children.length
-                )
-                const sri = document.querySelectorAll('#search__results img')
-                sri.forEach(i => {
+    function makeImage (v, img){
+        if (v) {
+            imageDistribution(
+                img, 
+                grid1.children.length, 
+                grid2.children.length, 
+                grid3.children.length, 
+                grid4.children.length
+            ) 
+        }
+    }
 
-                    if (i.src !== img.src) {
-                        console.log(i);
-                        
-                    } else {
-                        
-                    }
-                    
-                })
+    function removeImg(v) {
+        if (v) {
+           const sci = document.querySelectorAll('#search__results .col img')
+           sci.forEach(img => img.remove(img.children))
+        }
+    }
+
+    function over(value) {
+        if (value) {
+            const resultImg = images.filter(img => img.tag.toUpperCase().indexOf(value) > -1)
+            resultImg.forEach(img => {
+                const t = document.querySelectorAll('#search__results .col img')
+                if (t.length < resultImg.length) {
+                    makeImage(true, img)
+                } else {
+                    makeImage(false, img)
+                }                
             })
         }
-                
+    }
+    input.addEventListener('keyup', (e) => {
+        const value = input.value.toUpperCase()
+        if(e.key == 'Enter' || x ){
+            over(value)
+            
+        }else if (!value){
+            removeImg(true)
+        }
     })
-
 })
 
 
