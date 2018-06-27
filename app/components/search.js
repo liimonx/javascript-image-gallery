@@ -5,7 +5,6 @@ const searchContainer = document.querySelector('#search')
 const searchButton = document.querySelector('#search__bar button')
 const closeButon = document.querySelector('#search .close')
 const result = document.getElementById('search__results')
-
 const render = `<div class="container-fluid"><div class="row"><div class="col" id="s_grid_1"></div><div class="col" id="s_grid_2"></div><div class="col" id="s_grid_3"></div><div class="col" id="s_grid_4"></div></div></div>`
 
 const displayContainer = (value) => {
@@ -87,11 +86,13 @@ input.addEventListener('click', () => {
             })
         }
     }
+     
+    let value
     input.addEventListener('keyup', (e) => {
-        const value = input.value.toUpperCase()
-        if(e.key == 'Enter' || x ){
+        value = input.value.toUpperCase()
+        searchButton.addEventListener('click', (e) => over(value))
+        if(e.key == 'Enter'){
             over(value)
-            
         }else if (!value){
             removeImg(true)
         }
