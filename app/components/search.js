@@ -93,7 +93,7 @@ input.addEventListener('click', () => {
         searchButton.addEventListener('click', (e) => over(value))
         if(e.key == 'Enter'){
             over(value)
-        }else if (!value){
+        }else if ([...value].length < 3){
             removeImg(true)
         }
     })
