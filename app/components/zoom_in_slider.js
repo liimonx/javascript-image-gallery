@@ -52,6 +52,17 @@ const zSlider = (timg, simg) =>{
     }
     document.querySelector('#slider__control .next').addEventListener('click', () => slide('next'))
     document.querySelector('#slider__control .prev').addEventListener('click', () => slide('prev'))
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
+            slide('next')
+        }else if (e.key === 'ArrowLeft'){
+            slide('prev')
+        }else if (e.key === 'Escape'){
+            displaySlider(false)
+        }
+        
+    })
 }
 
 zSlider(targetImages, images)
