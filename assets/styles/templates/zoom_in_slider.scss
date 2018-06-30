@@ -29,6 +29,9 @@
     }
     .slideshow{
         width: 25px;
+        div{
+            transition: all 0.5s;
+        }
         .pause{
             opacity: 0;
         }

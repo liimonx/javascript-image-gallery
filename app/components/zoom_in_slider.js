@@ -1,6 +1,10 @@
 import images from './imgsrc'
 const targetImages = document.querySelectorAll('#gallery img')
 const sliderContainer = document.getElementById('slider__container')
+const slideShowBtn = document.querySelector('.slideshow')
+const swplayIcon = document.querySelector('.slideshow .play')
+const swpauseIcon = document.querySelector('.slideshow .pause')
+
 
 const zSlider = (timg, simg) =>{
     document.querySelector('.slider__close').addEventListener('click', () => displaySlider(false))
@@ -61,8 +65,27 @@ const zSlider = (timg, simg) =>{
         }else if (e.key === 'Escape'){
             displaySlider(false)
         }
-        
     })
+
+           
+        
+    slideShowBtn.addEventListener('click', () => {
+        if (swpauseIcon.style.opacity == 0) {
+            swpauseIcon.style.opacity = '1'
+            swplayIcon.style.opacity = '0'
+            let itv = setInterval(()=> {
+                slide('next')
+                
+                if (swplayIcon.style.opacity == '1' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)`) {
+                    clearInterval(itv)
+                }
+            }, 1000)
+        } else {
+            swpauseIcon.style.opacity = '0'
+            swplayIcon.style.opacity = '1'
+        }
+    })
+    
 }
 
 zSlider(targetImages, images)
