@@ -66,12 +66,7 @@ input.addEventListener('click', () => {
         }
     }
 
-    function removeImg(v) {
-        if (v) {
-           const sci = document.querySelectorAll('#search__results .col img')
-           sci.forEach(img => img.remove(img.children))
-        }
-    }
+    
 
     function over(value) {
         if (value) {
@@ -87,14 +82,17 @@ input.addEventListener('click', () => {
         }
     }
      
+   
     let value
     input.addEventListener('keyup', (e) => {
         value = input.value.toUpperCase()
-        searchButton.addEventListener('click', (e) => over(value))
+        searchButton.addEventListener('click', () => over(value))
+        const sci = document.querySelectorAll('#search__results .col img')
+        
         if(e.key == 'Enter'){
             over(value)
         }else if ([...value].length < 3){
-            removeImg(true)
+           sci.forEach(img => img.remove(img.children))
         }
     })
 })
