@@ -2,17 +2,18 @@ import images from './imgsrc'
 const targetImages = document.querySelectorAll('#gallery img')
 const sliderContainer = document.getElementById('slider__container')
 const slideShowBtn = document.querySelector('.slideshow')
-const swplayIcon = document.querySelector('.slideshow .play')
-const swpauseIcon = document.querySelector('.slideshow .pause')
+const swplayIcon = document.querySelector('.slideshow .play img')
+const swpauseIcon = document.querySelector('.slideshow .pause img')
 
 
-const zSlider = (timg, simg) =>{
+const zoomSlider = (timg, simg) =>{
     document.querySelector('.slider__close').addEventListener('click', () => displaySlider(false))
     document.querySelector('#slider__control .next')
+    const zSlider = document.getElementById('zoom__slider')
+
     let m = 0
 
     const displaySlider = (v) =>{
-        const zSlider = document.getElementById('zoom__slider')
         const rvid = document.querySelectorAll('#slider__container div')
         if (v) {
             zSlider.style.display = 'block'
@@ -54,8 +55,28 @@ const zSlider = (timg, simg) =>{
             sliderContainer.style.transform = `translateX(-${m}00vw)`
         }
     }
+
+    const slideshow = () =>{
+        if (swpauseIcon.style.opacity == 0) {
+            swpauseIcon.style.opacity = '1'
+            swplayIcon.style.opacity = '0'
+            let itv = setInterval(()=> {
+                slide('next')
+                if (swplayIcon.style.opacity == '1' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)` || zSlider.style.display == 'none') {
+                    clearInterval(itv)
+                    swpauseIcon.style.opacity = '0'
+                    swplayIcon.style.opacity = '1'
+                }
+            }, 3000)
+        } else {
+            swpauseIcon.style.opacity = '0'
+            swplayIcon.style.opacity = '1'
+        }
+    } 
+
     document.querySelector('#slider__control .next').addEventListener('click', () => slide('next'))
     document.querySelector('#slider__control .prev').addEventListener('click', () => slide('prev'))
+    slideShowBtn.addEventListener('click', () => slideshow())
     
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') {
@@ -64,28 +85,13 @@ const zSlider = (timg, simg) =>{
             slide('prev')
         }else if (e.key === 'Escape'){
             displaySlider(false)
+        }else if (e.key == 'Enter'){
+            slideshow()
         }
     })
 
-           
-        
-    slideShowBtn.addEventListener('click', () => {
-        if (swpauseIcon.style.opacity == 0) {
-            swpauseIcon.style.opacity = '1'
-            swplayIcon.style.opacity = '0'
-            let itv = setInterval(()=> {
-                slide('next')
-                
-                if (swplayIcon.style.opacity == '1' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)`) {
-                    clearInterval(itv)
-                }
-            }, 1000)
-        } else {
-            swpauseIcon.style.opacity = '0'
-            swplayIcon.style.opacity = '1'
-        }
-    })
+          
     
 }
 
-zSlider(targetImages, images)
+zoomSlider(targetImages, images)
