@@ -1,4 +1,5 @@
 import images from './imgsrc'
+import zoomSlider from './zoom_in_slider'
 
 const input = document.querySelector('#search__bar input')
 const searchContainer = document.querySelector('#search')	
@@ -77,7 +78,7 @@ input.addEventListener('click', () => {
                     makeImage(true, img)
                 } else {
                     makeImage(false, img)
-                }                
+                }
             })
         }
     }
@@ -88,7 +89,7 @@ input.addEventListener('click', () => {
         value = input.value.toUpperCase()
         searchButton.addEventListener('click', () => over(value))
         const sci = document.querySelectorAll('#search__results .col img')
-        
+
         if(e.key == 'Enter'){
             over(value)
         }else if ([...value].length < 3){

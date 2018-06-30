@@ -62,7 +62,7 @@ const zoomSlider = (timg, simg) =>{
             swplayIcon.style.opacity = '0'
             let itv = setInterval(()=> {
                 slide('next')
-                if (swplayIcon.style.opacity == '1' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)` || zSlider.style.display == 'none') {
+                if (swpauseIcon.style.opacity == '0' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)` || zSlider.style.display == 'none') {
                     clearInterval(itv)
                     swpauseIcon.style.opacity = '0'
                     swplayIcon.style.opacity = '1'
@@ -93,5 +93,5 @@ const zoomSlider = (timg, simg) =>{
           
     
 }
-
 zoomSlider(targetImages, images)
+export default zoomSlider
