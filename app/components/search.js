@@ -72,14 +72,17 @@ input.addEventListener('click', () => {
     function over(value) {
         if (value) {
             const resultImg = images.filter(img => img.tag.toUpperCase().indexOf(value) > -1)
+            const t = document.querySelectorAll('#search__results .col img')
+
             resultImg.forEach(img => {
-                const t = document.querySelectorAll('#search__results .col img')
                 if (t.length < resultImg.length) {
                     makeImage(true, img)
                 } else {
                     makeImage(false, img)
                 }
             })
+            console.log(t);
+            zoomSlider(t, resultImg)
         }
     }
      
