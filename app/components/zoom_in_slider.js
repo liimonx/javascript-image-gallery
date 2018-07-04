@@ -5,6 +5,11 @@ const slideShowBtn = document.querySelector('.slideshow')
 const swplayIcon = document.querySelector('.slideshow .play img')
 const swpauseIcon = document.querySelector('.slideshow .pause img')
 
+const css = (el, styles)=>{
+    for (const property in styles) {
+        el.style[property] = styles[property]
+    }
+}
 
 const zoomSlider = (timg, simg) =>{
     document.querySelector('.slider__close').addEventListener('click', () => displaySlider(false))
@@ -31,7 +36,16 @@ const zoomSlider = (timg, simg) =>{
             const imgE = document.createElement('img')
             imgE.src = img.src
             imgE.dataset.tag = img.tag
+            css(imgE, {
+                height: '100vh'
+            })
             div.appendChild(imgE)
+            css(div, {
+                display: 'flex',
+                width : '100vw',
+                justifyContent: 'center',
+                alignItems: 'center'
+            })
             sliderContainer.appendChild(div)
             sliderContainer.style.width = `${simg.length}00vw`
         })
