@@ -37,10 +37,12 @@ input.addEventListener('click', () => {
     const grid4 = document.getElementById('s_grid_4')
 
     const createImg = (src, tag, grid)=>{
+        const div = document.createElement('div')
         const img = document.createElement('img')
             img.src = src
             img.dataset.tag = tag
-        grid.appendChild(img)
+            div.appendChild(img)
+        grid.appendChild(div)
     }
     
     function imageDistribution(img, a, b, c, d) {
@@ -70,10 +72,9 @@ input.addEventListener('click', () => {
     
 
     function over(value) {
+        const t = document.querySelectorAll('#search__results .col div img')
         if (value) {
             const resultImg = images.filter(img => img.tag.toUpperCase().indexOf(value) > -1)
-            const t = document.querySelectorAll('#search__results .col img')
-
             resultImg.forEach(img => {
                 if (t.length < resultImg.length) {
                     makeImage(true, img)
@@ -81,7 +82,6 @@ input.addEventListener('click', () => {
                     makeImage(false, img)
                 }
             })
-            console.log(t);
             zoomSlider(t, resultImg)
         }
     }
