@@ -1,5 +1,3 @@
-import images from './imgsrc'
-const targetImages = document.querySelectorAll('#gallery img')
 const sliderContainer = document.getElementById('slider__container')
 const slideShowBtn = document.querySelector('.slideshow')
 const swplayIcon = document.querySelector('.slideshow .play img')
@@ -103,9 +101,7 @@ const zoomSlider = (timg, simg) =>{
             slideshow()
         }
     })
-
-          
     
 }
-zoomSlider(targetImages, images)
 export default zoomSlider
+
