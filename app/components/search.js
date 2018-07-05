@@ -1,5 +1,4 @@
 import images from './imgsrc'
-import zoomSlider from './zoom_in_slider'
 
 const input = document.querySelector('#search__bar input')
 const searchContainer = document.querySelector('#search')	
