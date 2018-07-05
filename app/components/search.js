@@ -82,7 +82,6 @@ input.addEventListener('click', () => {
                     makeImage(false, img)
                 }
             })
-            zoomSlider(t, resultImg)
         }
     }
      
@@ -92,13 +91,16 @@ input.addEventListener('click', () => {
         value = input.value.toUpperCase()
         searchButton.addEventListener('click', () => over(value))
         const sci = document.querySelectorAll('#search__results .col img')
-
         if(e.key == 'Enter'){
             over(value)
+            // const sc = document.querySelectorAll('#search__results .col img')
+            // zoomSlider([...sc])
         }else if ([...value].length < 3){
            sci.forEach(img => img.remove(img.children))
         }
+       
     })
 })
 
 
+    

@@ -9,11 +9,12 @@ const css = (el, styles)=>{
     }
 }
 
-const zoomSlider = (timg, simg) =>{
+const zoomSlider = (tImg) =>{
     document.querySelector('.slider__close').addEventListener('click', () => displaySlider(false))
     document.querySelector('#slider__control .next')
     const zSlider = document.getElementById('zoom__slider')
-
+    console.log(tImg.length);
+    
     let m = 0
 
     const displaySlider = (v) =>{
@@ -29,7 +30,7 @@ const zoomSlider = (timg, simg) =>{
     }
 
     const createSliderImg = () => {
-        simg.forEach(img => {
+        tImg.forEach(img => {
             const div = document.createElement('div')
             const imgE = document.createElement('img')
             imgE.src = img.src
@@ -45,24 +46,24 @@ const zoomSlider = (timg, simg) =>{
                 alignItems: 'center'
             })
             sliderContainer.appendChild(div)
-            sliderContainer.style.width = `${simg.length}00vw`
+            sliderContainer.style.width = `${tImg.length}00vw`
         })
     }
-    timg.forEach(t => {
+    tImg.forEach(t => {
         t.addEventListener('click', (e) => {
             displaySlider(true)
             createSliderImg()
-            const i = simg.findIndex(img => ('http://localhost:8080/'+img.src) == e.target.src)
+            const i = [...tImg].findIndex(img => (img.src) == e.target.src)
             sliderContainer.style.transform = `translateX(-${i}00vw)`
             m = i
         })        
     });
 
     const slide = (d) => {
-        if (d == 'next' && m != (`${simg.length}` - 1)) {
+        if (d == 'next' && m !== (`${tImg.length}` - 1)) {
             m += 1
             sliderContainer.style.transform = `translateX(-${m}00vw)`
-        } else if (d == 'prev' && m != 0) {
+        } else if (d == 'prev' && m !== 0) {
             m -= 1
             sliderContainer.style.transform = `translateX(-${m}00vw)`
         }
@@ -74,7 +75,7 @@ const zoomSlider = (timg, simg) =>{
             swplayIcon.style.opacity = '0'
             let itv = setInterval(()=> {
                 slide('next')
-                if (swpauseIcon.style.opacity == '0' || sliderContainer.style.transform == `translateX(-${simg.length - 1}00vw)` || zSlider.style.display == 'none') {
+                if (swpauseIcon.style.opacity == '0' || sliderContainer.style.transform == `translateX(-${tImg.length - 1}00vw)` || zSlider.style.display == 'none') {
                     clearInterval(itv)
                     swpauseIcon.style.opacity = '0'
                     swplayIcon.style.opacity = '1'
