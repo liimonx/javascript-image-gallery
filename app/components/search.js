@@ -89,13 +89,11 @@ input.addEventListener('click', () => {
     input.addEventListener('keyup', (e) => {
         value = input.value.toUpperCase()
         searchButton.addEventListener('click', () => over(value))
-        const sci = document.querySelectorAll('#search__results .col img')
+        const sci = document.querySelectorAll('#search__results .col div')
         if(e.key == 'Enter'){
             over(value)
-            // const sc = document.querySelectorAll('#search__results .col img')
-            // zoomSlider([...sc])
         }else if ([...value].length < 3){
-           sci.forEach(img => img.remove(img.children))
+           sci.forEach(div => div.remove(div.children))
         }
        
     })
